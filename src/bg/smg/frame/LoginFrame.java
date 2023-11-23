@@ -23,9 +23,9 @@ public class LoginFrame extends JFrame  implements ActionListener {
    public void actionPerformed(ActionEvent e) {
         String username= usernameTxF.getText();
         String password=passwordFieldPwdF.getPassword().toString();
-        User a=new User(username,password);
+        User a=new User();
         if(username.equals("nmborisova")&&password.equals("123456")){
-            new MainFrame();
+            new MainFrame(a);
             setVisible(false);
         }else{
 

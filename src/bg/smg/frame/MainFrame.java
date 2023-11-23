@@ -20,6 +20,8 @@ private JLabel bannerLbl;
 static JFrame mainFr;
 static JComboBox menuAccounts;
     public MainFrame( User currentUser){
+        mainFr = new JFrame();
+
         this.currentUser=currentUser;
         mainFr.setSize(600,500);
         mainFr.setTitle("Bank app");
