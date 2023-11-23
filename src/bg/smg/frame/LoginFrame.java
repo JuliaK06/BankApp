@@ -1,10 +1,12 @@
 package bg.smg.frame;
 import javax.swing.*;
+import bg.smg.model.User;
+import java.util.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class LoginFrame extends JFrame  {
+public class LoginFrame extends JFrame  implements ActionListener {
 
     private JButton loginBtn;
     private JButton fpBtn;
@@ -14,7 +16,23 @@ public class LoginFrame extends JFrame  {
     private JTextField usernameTxF;
     private JPasswordField passwordFieldPwdF;
 
-    public LoginFrame(){
+
+
+
+
+   public void actionPerformed(ActionEvent e) {
+        String username= usernameTxF.getText();
+        String password=passwordFieldPwdF.getPassword().toString();
+        User a=new User(username,password);
+        if(username.equals("nmborisova")&&password.equals("123456")){
+            new MainFrame();
+            setVisible(false);
+        }else{
+
+        }
+    }
+
+    public LoginFrame(List<User> availableUsers) {
         this.setTitle("Login into Bank app");
         this.setSize(400, 240);
         this.setLayout(null);
@@ -26,13 +44,13 @@ public class LoginFrame extends JFrame  {
         fpBtn = new JButton("Forgotten password");
         signUpBtn = new JButton("Sign Up");
 
-        usernameLbl.setBounds(40,20,100,20);
-        usernameTxF.setBounds(140,20,160,20);
-        passwordLbl.setBounds(40,60,160,20);
+        usernameLbl.setBounds(40, 20, 100, 20);
+        usernameTxF.setBounds(140, 20, 160, 20);
+        passwordLbl.setBounds(40, 60, 160, 20);
         passwordFieldPwdF.setBounds(140, 60, 160, 20);
-        loginBtn.setBounds(140,100,100,20);
-        signUpBtn.setBounds(40,140,100,20);
-        fpBtn.setBounds(180,140,180,20);
+        loginBtn.setBounds(140, 100, 100, 20);
+        signUpBtn.setBounds(40, 140, 100, 20);
+        fpBtn.setBounds(180, 140, 180, 20);
 
         this.add(usernameLbl);
         this.add(usernameTxF);
@@ -45,6 +63,4 @@ public class LoginFrame extends JFrame  {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
     }
-
-
 }
